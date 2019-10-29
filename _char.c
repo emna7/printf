@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * convert - converts decimal number to hexadecimal number
+ * convert - function that converts decimal number to hexadecimal number
  * @num: number to be converted
  * @size: digits in hexadecimal number
  * @base: base to convert to
