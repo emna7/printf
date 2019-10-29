@@ -8,7 +8,7 @@
 */
 int _print_i(va_list vi)
 {
-int x, num, div, o, n, count = 0;
+int x, bit, d, o, n, c = 0;
 n = va_arg(vi, int);
 o = n % 10;
 n = n / 10;
@@ -17,100 +17,100 @@ if (o < 0)
 n = -n;
 o = -o;
 _putchar('-');
-count++;
+c++;
 }
-num = n;
-div = 1;
-if (num > 0)
+bit = n;
+d = 1;
+if (bit > 0)
 {
-while ((num / 10) != 0)
+while ((bit / 10) != 0)
 {
-num = num / 10;
-div = div * 10;
+bit = bit / 10;
+d = d * 10;
 }
-while (div >= 1)
+while (d >= 1)
 {
-x = n / div;
+x = n / d;
 _putchar(x + '0');
-count++;
-n = n % div;
-div = div / 10;
+c++;
+n = n % d;
+d = d / 10;
 }
 }
 _putchar(o + '0');
-count++;
-return (count);
+c++;
+return (c);
 }
-
 /**
 * print_u - Convert a number into an unsigned int and print it
 * @un: The number to be converted
+*
 * Return: The number of digits printed
 */
 int print_u(va_list un)
 {
-unsigned int number, count = 0, divisor;
+unsigned int num, c = 0, div;
 
-number = va_arg(un, int);
+num = va_arg(un, int);
 
-if (number == 0)
+if (num == 0)
 {
 _putchar('0');
-count = 1;
+c = 1;
 }
-if (number > 0)
+if (num > 0)
 {
-for (divisor = 1; (number / divisor) > 9; divisor *= 10)
+for (div = 1; (num / div) > 9; div *= 10)
 ;
-while (divisor != 0)
+while (div != 0)
 {
-_putchar((number / divisor) + '0');
-number %= divisor;
-divisor /= 10;
-count++;
+_putchar((num / div) + '0');
+num %= div;
+div /= 10;
+c++;
 }
 }
-return (count);
+return (c);
 }
 
 /**
- * print_oct - Converts a decimal number passed to the argument to an octal
- * number
- * @oct: The number to be converted
- * Return: count of digit in octal number
+ * print_oct - Converts a decimal num passed to the argument to an octal
+ * num
+ * @oct: The num to be converted
+ * Return: c of digit in octal num
  */
 int print_oct(va_list oct)
 {
-unsigned int number, count = 0, index = 0;
+unsigned int num, c = 0, index = 0;
 int arr[100];
 
-number = va_arg(oct, int);
-if (number < 9)
+num = va_arg(oct, int);
+if (num < 9)
 {
-_putchar(number + '0');
-count = 1;
+_putchar(num + '0');
+c = 1;
 }
-else if (number >= 9)
+else if (num >= 9)
 {
-while (number > 0)
+while (num > 0)
 {
-arr[index] = number % 8;
-number /= 8;
+arr[index] = num % 8;
+num /= 8;
 index++;
 }
 }
 while (index--)
 {
 _putchar(arr[index] + '0');
-count++;
+c++;
 }
-return (count);
+return (c);
 }
 
 /**
 * print_c - prints a char and returns 1
 * @c: the list of arguments
-* Return: number of printed characters
+* Return: num of printed characters
 */
 int print_c(va_list c)
 {
@@ -122,14 +122,14 @@ return (1);
 /**
 * print_s - prints a string and returns the length of string
 * @s: the list of arguments
-* Return: number of printed characters
+* Return: num of printed characters
 */
 int print_s(va_list s)
 {
 char *string;
 int i = 0;
 string = va_arg(s, char *);
-if (string == '\0')
+if (string == NULL)
 {
 string = "(null)";
 }
