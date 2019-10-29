@@ -3,14 +3,14 @@
 #include <stdarg.h>
 #include <stdlib.h>
 /**
-* getspecifier - funtion that finds the function for the specifier
-* @x: the specifier in the string
+* getspecifier - function for the specifier
+* @x: is a character
 * Return: pointer to function
 */
 int(*getspecifier(char x))(va_list)
 {
-int y;
-mystr p[] = {
+int i;
+fondation p[] = {
 {'c', print_c},
 {'s', print_s},
 {'i', _print_i},
@@ -23,11 +23,11 @@ mystr p[] = {
 {'R', print_rot},
 {'\0', '\0'}
 };
-for (y = 0; p[y].letter; y++)
+for (i = 0; p[i].letter; i++)
 {
-if (p[y].letter == x)
+if (p[i].letter == x)
 {
-return (p[y].func);
+return (p[i].func);
 }
 }
 return (0);
