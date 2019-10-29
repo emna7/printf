@@ -1,21 +1,22 @@
 #include "holberton.h"
+
 /**
-* ctoa - function taht converts a character to a string
-* @valist: list with next argument
-* @buffer: character buffer for printing
-* @pos: position in the buffer
-* @n_printed: number of printable characters
-* @spec: specifier flags
-* Return: Always 0
-*/
-int convert(va_list list, char *bff, int *p, int *num_printed, char *sc)
+ * convert - function that converts a character to a string
+ * @valist: list with next argument
+ * @buffer: character buffer for printing
+ * @pos: position in the buffer
+ * @n_printed: number of printable characters
+ * @spec: specifier flags
+ * Return: Always 0
+ */
+int convert(va_list valist, char *buffer, int *pos, int *n_printed, char *spec)
 {
-unsigned char c = va_arg(list, int);
-(void) sc;
+unsigned char c = va_arg(valist, int);
+(void) spec;
 if (c == '\0')
 c = ' ';
-buffer_full(bff, p, num_printed);
-bff[*p] = c;
-(*p)++;
+buffer_full(buffer, pos, n_printed);
+buffer[*pos] = c;
+(*pos)++;
 return (0);
 }
