@@ -6,12 +6,12 @@
  * @pos: position in the buffer
  * @n_printed: number of printable characters
  */
-void string_to_buffer(char *s, char *buffer, int *p, int *n_printed)
+void string_to_buffer(char *s, char *buffer, int *p, int *num_printed)
 {
 int y;
 for (y = 0; s[y] != '\0'; y++)
 {
-buffer_full(buffer, pos, n_printed);
+buffer_full(buffer, pos, num_printed);
 buffer[*p] = s[y];
 (*p)++;
 }
