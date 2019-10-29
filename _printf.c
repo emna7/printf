@@ -2,16 +2,16 @@
 #include <stdarg.h>
 #include "holberton.h"
 /**
-* _printf - A print function
-* @format: pointer to a string
-* Return: number of chars
-**/
+ * _printf - A print function
+ * @format: pointer to a string
+ * Return: number of chars
+ */
 int _printf(const char *format, ...)
 {
 unsigned int x = 0, a = 0;
 int (*f)(va_list);
 va_list list;
-if (format == '\0')
+if (format == NULL)
 return (-1);
 va_start(list, format);
 while (format && format[a])
@@ -29,7 +29,7 @@ else if (format[a] == '%')
 {
 f = getspecifier(format[a + 1]);
 a += 1;
-if (f == '\0')
+if (f == NULL)
 {
 if (format[a] != '%')
 {
